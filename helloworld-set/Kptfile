@@ -1,0 +1,21 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: hello-world-set
+openAPI:
+  definitions:
+    io.k8s.cli.setters.image-tag:
+      description: hello-world image tag
+      x-k8s-cli:
+        setter:
+          name: image-tag
+          value: 0.1.0
+          setBy: package-default
+    io.k8s.cli.substitutions.image-tag:
+      x-k8s-cli:
+        substitution:
+          name: image-tag
+          pattern: gcr.io/kpt-dev/helloworld-gke:IMAGE_TAG_SETTER
+          values:
+          - marker: IMAGE_TAG_SETTER
+            ref: '#/definitions/io.k8s.cli.setters.image-tag'
