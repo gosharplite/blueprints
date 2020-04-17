@@ -6,3 +6,10 @@ packageMetadata:
   tags:
   - kpt.dev/app=nginx
   shortDescription: kpt nginx package
+openAPI:
+  definitions:
+    io.k8s.cli.setters.replicas:
+      x-k8s-cli:
+        setter:
+          name: replicas
+          value: "3"
