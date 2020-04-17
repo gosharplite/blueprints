@@ -12,4 +12,4 @@ openAPI:
       x-k8s-cli:
         setter:
           name: replicas
-          value: "3"
+          value: "5"
